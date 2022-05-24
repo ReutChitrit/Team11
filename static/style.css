@@ -1,0 +1,1101 @@
+* {
+	margin: 0%;
+	padding: 0%;
+	box-sizing: border-box;
+	font-family: ourFont;
+
+}
+
+@font-face {
+	font-family: ourFont;
+	src: url(..//static/fonts/static/OpenSans/OpenSans-Light.ttf);
+}
+
+body {
+	background-image: url(..//static/background2.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 180%;
+	background-attachment: fixed;
+
+}
+
+h1 {
+	margin-top: 3vh;
+	margin-right: 4vh;
+	margin-left: 4vh;
+	color: black;
+	border-bottom: 0.2vw solid black;
+	font-size: 5vh;
+
+}
+
+h2 {
+	float: right;
+	margin-top: 2%;
+	margin-bottom: 5%;
+	margin-right: 3%;
+	font-size: 3.5vh;
+
+}
+
+nav {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 10vh;
+	background-color: rgb(8, 60, 69);
+	/* background-color:rgb(91, 154, 176);*/
+	/*background-color:rgb(24, 69, 69);*/
+	/*background-color:rgb(123, 150, 198);*/
+	/*background-color:rgba(221,191,165,255);*/
+	/*opacity:0.7;*/
+	font-size: 95%;
+	grid-area: Nav;
+
+
+}
+
+#logo {
+	width: 28%;
+	padding-top: 6%;
+	padding-bottom: 4%;
+	margin-left: 80%;
+	margin-right: 15%;
+	grid-area: Nav;
+
+
+}
+
+.nav-links {
+	display: flex;
+	justify-content: space-around;
+	width: 55%;
+	margin-left: 20%;
+	grid-area: Nav;
+
+}
+
+
+.nav-links li {
+	list-style: none;
+	grid-area: Nav;
+
+
+}
+
+.nav-links a {
+	color: rgb(249, 253, 253);
+	text-decoration: none;
+	letter-spacing: 40%;
+	font-weight: bold;
+	font-size: 120%;
+	grid-area: Nav;
+
+
+}
+
+a:hover {
+	color: rgb(2, 2, 2);
+}
+
+
+.burger {
+	display: none;
+	cursor: pointer;
+	grid-area: Nav;
+
+
+}
+
+.burger div {
+	width: 250%;
+	height: 0.6vh;
+	background-color: aliceblue;
+	margin: 0.9vh;
+	padding: 0%;
+	transition: all 0.3s ease;
+	grid-area: Nav;
+
+
+}
+
+
+/*near beaches */
+#nearBeachesContainer {
+	display: grid;
+	grid-template-areas:
+		'Nav Nav Nav'
+		'Header Header Header'
+		'Main Main buttom';
+}
+
+#headerContainer {
+	grid-area: Header;
+}
+
+
+#weatherPic {
+	width: 100%;
+}
+
+.Main {
+	grid-area: Main;
+	margin-right: 10%;
+}
+
+.styled-table {
+	border-collapse: collapse;
+	font-size: 1.1em;
+	font-family: sans-serif;
+	min-width: 100%;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	text-align: center;
+}
+
+.styled-table thead tr {
+	background-color: #000000;
+	color: white;
+	text-align: left;
+	text-align: center;
+}
+
+.styled-table th,
+
+.styled-table td {
+	padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+	border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+	background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+	border-bottom: 2px solid #985900;
+}
+
+
+#buttomContainer {
+	grid-area: buttom;
+	margin: 4%;
+	margin-right: 0%;
+}
+
+#allBeachesLink {
+	list-style: none;
+	color: #000000;
+}
+
+.nearBeachesLables {
+	margin-right: 0.4%;
+	margin-bottom: 2vh;
+}
+
+@media screen and (max-width:1024px) {
+	.nav-links {
+		width: 60%;
+	}
+
+}
+
+
+@media screen and (max-width:920px) {
+	body {
+		overflow-x: hidden;
+
+	}
+
+	#nearBeachesContainer {
+		display: grid;
+		grid-template-areas:
+			'Nav'
+			'Header'
+			'Main'
+			'buttom';
+	}
+
+	.Main {
+		margin: 10%;
+		margin-top: 4%;
+	}
+
+	#openingSentence {
+		margin-right: 0%;
+	}
+
+	.nav-links {
+		position: absolute;
+		right: 0%;
+		bottom:0%;
+		top: 10vh;
+		background-color: rgb(8, 60, 69);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 50%;
+		transform: translateX(100%);
+		transition: transform 0.5s ease-in;
+
+
+	}
+
+	.nav-links li {
+		opacity: 0;
+
+	}
+
+	#logo {
+		margin-right: 80%;
+
+	}
+
+	.burger {
+		display: block;
+
+	}
+
+	#allBeachesLink {
+		margin-right: 40vh;
+		list-style: none;
+	}
+
+}
+
+.nav-active {
+	transform: translateX(0%);
+
+}
+
+
+@keyframes navLinkFade {
+	from {
+		opacity: 0;
+		transform: translateX(50%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}
+
+.toggle .line1 {
+	transform: rotate(-45deg) translate(-41%, 50%);
+}
+
+.toggle .line2 {
+	opacity: 0;
+
+}
+
+.toggle .line3 {
+	transform: rotate(45deg) translate(-41%, -50%);
+
+}
+
+
+/*save beach*/
+#saveBeachContainer {
+	display: grid;
+	grid-template-areas:
+		'Nav'
+		'Header'
+		'Title'
+		'flex-container1'
+		'flex-container2'
+		'finalSentence'
+		'animation';
+}
+
+
+#mainTitle {
+	grid-area: Header;
+}
+
+
+#title {
+	grid-area: Title;
+}
+
+
+#beach {
+	block-size: 60px;
+	margin-top: 1%;
+}
+
+#seaTurtle {
+	block-size: 150px;
+	animation: slidein 8s infinite;
+	animation-name: slidein;
+	margin-top: 0%;
+	grid-area: animation
+}
+
+.flex-container1,
+.flex-container2 {
+	display: flex;
+	margin-bottom: 25%;
+	text-align: center;
+	margin-left: 1%;
+	grid-area: 'flex-container1';
+}
+
+.flex-container2 {
+	grid-area: 'flex-container2'
+}
+
+
+.flex-container1-2,
+.flex-container3-4,
+.flex-container5-6,
+.flex-container7-8 {
+	display: flex;
+}
+
+.flex-child {
+	flex: 2;
+	margin-left: 0%;
+	margin-right: 3%;
+}
+
+.sentence {
+	border-radius: 50%;
+	border: 0.5vw solid black;
+	width: 25vw;
+	height: 23vw;
+	text-align: center;
+	font-size: 110%;
+	vertical-align: middle;
+	display: table-cell;
+}
+
+.index {
+	color: aliceblue;
+	border-radius: 50%;
+	background-color: rgb(8, 60, 69);
+	height: 7vw;
+	width: 7vw;
+	font-size: 150%;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	margin-left: 6%;
+	margin-top: -105%;
+}
+
+#finalSentence {
+	grid-area: finalSentence;
+	color: rgb(8, 60, 69);
+	font-size: 6vh;
+	text-align: center;
+	margin-right: 0%;
+
+
+}
+
+@keyframes slidein {
+	from {
+		margin-right: 82%;
+
+	}
+
+	to {
+		margin-right: 3%;
+
+	}
+}
+
+
+@media only screen and (max-width: 900px) {
+	#saveBeachContainer {
+		display: grid;
+		grid-template-areas:
+			'Nav'
+			'Header'
+			'Title'
+			'flex-container1'
+			'flex-container2'
+			'finalSentence'
+			'animation';
+	}
+
+
+	.flex-container1,
+	.flex-container2 {
+		display: grid;
+		margin-bottom: 0%;
+		text-align: center;
+		grid-area: 'flex-container1';
+	}
+
+	.flex-container2 {
+		grid-area: 'flex-container2';
+	}
+
+	.index {
+		margin-right: 3%;
+		margin-top: -75%;
+		margin-bottom: 80%;
+	}
+
+	.sentence {
+		width: 38vw;
+		height: 35vw;
+		font-size: 93.5%;
+
+	}
+
+
+	@keyframes slidein {
+		from {
+			margin-right: 50%;
+		}
+
+		to {
+			margin-right: 3%;
+		}
+	}
+
+}
+
+
+/*surfing clubs + contact us surf*/
+.subTitle {
+	text-align: center;
+	font-size: 3.5vh;
+	margin-top: 2%;
+	font-weight: bold;
+}
+
+
+.subsubTitle {
+	text-align: center;
+	font-size: 3vh;
+	margin-bottom: 1%;
+}
+
+.FreeText {
+	text-align: right;
+	margin-right: 2%;
+}
+
+.clubInfoWrap {
+	position: relative;
+	text-align: center;
+	color: white;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	grid-area: fullPage;
+
+}
+
+
+.centeredText {
+	top: 47%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	background: black;
+	color: white;
+	opacity: 0;
+	-webkit-transition: visibility 0s, opacity 0.5s linear;
+	transition: visibility 0s, opacity 0.5s linear;
+	visibility: hidden;
+	text-align: center;
+	width: 92%;
+	grid-area: fullPage;
+	position: absolute;
+}
+
+
+.clubInfoWrap:hover .centeredText {
+	visibility: visible;
+	opacity: 0.7;
+	text-align: center;
+	display: flex;
+
+
+}
+
+.clubPic:hover {
+	cursor: pointer;
+}
+
+.clubPic {
+	width: 92%;
+	height: 305px;
+	grid-area: fullPage;
+
+}
+
+
+.fullPage {
+	text-align: center;
+
+}
+
+#contactUsHeader {
+	grid-area: header;
+}
+
+.contactUsSubTitle {
+	grid-area: subTitle;
+	margin-bottom: 3%;
+
+}
+
+.formLabel {
+	grid-area: mainContactUs;
+	font-size: 2.5vh;
+	font-weight: bold;
+
+
+}
+
+small {
+	margin-right: 3%;
+}
+
+#submitButton1 {
+	grid-area: mainContactUs;
+	margin-right: 2%;
+	font-weight: bold;
+	grid-area: insertCity;
+	color: white;
+	font-size: larger;
+	background-color: black;
+	cursor: pointer;
+	border: none;
+	padding: 0.8%;
+	padding-left: 3%;
+	padding-right: 3%;
+	text-align: center;
+
+
+}
+
+#submitButton1:hover {
+	background-color: rgb(8, 60, 69);
+}
+
+.clearButton {
+	grid-area: mainContactUs;
+	margin-right: 14%;
+	font-weight: bold;
+	grid-area: insertCity;
+	color: white;
+	font-size: larger;
+	background-color: black;
+	cursor: pointer;
+	border: none;
+	padding: 0.8%;
+	padding-left: 3%;
+	padding-right: 3%;
+	text-align: center;
+}
+
+.clearButton:hover {
+	background-color: rgb(8, 60, 69);
+
+}
+
+
+#textArea {
+	width: 400px;
+	height: 100px;
+	grid-area: mainContactUs;
+	margin-right: 3%;
+	font-size: 2.5vh;
+	background: none;
+	border-color: black;
+	border-width: 0.3vh;
+}
+
+.contactInput {
+	background: none;
+	border-color: black;
+	border-width: 0.3vh;
+}
+
+.label {
+	grid-area: mainContactUs;
+	font-size: 2.5vh;
+	font-weight: bold;
+
+}
+
+.contactUsbottom {
+	grid-area: 'bottom';
+	margin-right: 3%;
+	text-align: center;
+	font-size: 3.5vh;
+	font-weight: bold;
+	margin-top: 0.8%;
+
+}
+
+#gridContainerSurfingClubs {
+	display: grid;
+	grid-template-areas:
+		'Nav'
+		'fullPage';
+}
+
+
+@media only screen and (max-width: 700px) {
+
+	#gridContainerSurfingClubs {
+		display: grid;
+		grid-template-areas:
+			'Nav'
+			'fullPage';
+	}
+
+	#liranPic {
+		height: 245px;
+	}
+
+	.clubPic {
+		width: 92%;
+		height: 265px;
+		grid-area: fullPage;
+
+	}
+
+
+	.centeredText {
+		font-size: small;
+	}
+
+}
+
+
+#gridContainerContactUS {
+	display: grid;
+	grid-template-areas:
+		'Nav'
+		'header'
+		'subTitle'
+		'mainContactUs'
+		'bottom';
+}
+
+
+@media only screen and (max-width: 600px) {
+
+	#gridContainerContactUS {
+		display: grid;
+		grid-template-areas:
+			'Nav'
+			'header'
+			'subTitle'
+			'mainContactUs'
+			'bottom';
+	}
+
+
+}
+
+
+/*find a beach + tips*/
+#findABeachContainer {
+	display: grid;
+	grid-template-areas:
+		'Nav Nav Nav Nav Nav'
+		'titleDiv titleDiv titleDiv titleDiv titleDiv'
+		'videoBox videoBox videoBox videoBox videoBox'
+		'shareLocation shareLocation orDiv insertCity insertCity'
+		'shareLocation shareLocation orDiv insertCity insertCity'
+		'beachSurfInfo beachSurfInfo beachSurfInfo beachSurfInfo beachSurfInfo';
+}
+
+#tipsContainer {
+	display: grid;
+	grid-template-areas:
+		'Nav'
+		'rightTips'
+		'leftTips'
+		'freqQuestions';
+}
+
+.leftTips {
+	grid-area: leftTips;
+	margin-right: 0%;
+	padding: 0.5%;
+	padding-right: 1%;
+	border-style: solid;
+	border-color: black;
+	width: 100%;
+}
+
+.rightTips {
+	grid-area: rightTips;
+	margin-left: 0%;
+	padding: 0.5%;
+	padding-right: 1%;
+	border-style: solid;
+	border-color: black;
+	width: 100%;
+}
+
+
+#tip1,
+#tip2,
+#tip3,
+#tip4,
+#tip5,
+#tip6 {
+	display: flex;
+	text-align: center;
+	background: none;
+}
+
+
+.leftImg {
+	height: 100%;
+	width: 100%;
+	margin-left: 0%;
+	object-fit: cover;
+}
+
+.rightImg {
+
+	height: 100%;
+	width: 100%;
+	margin-right: 0%;
+	object-fit: cover;
+
+}
+
+#freqQuestions {
+	grid-area: freqQuestions;
+
+}
+
+.QA {
+	cursor: pointer;
+	border: 49%;
+	margin-top: 1%;
+	text-align: right;
+	padding-right: 1%;
+	margin-left: 0%;
+	margin-right: 0%;
+	font-weight: bold;
+
+}
+
+details {
+	font-size: 120%;
+}
+
+summary {
+	font-size: 150%;
+}
+
+
+#titleDiv {
+	grid-area: titleDiv;
+	position: relative;
+	padding-bottom: 1%;
+	margin-bottom: 5%;
+}
+
+.videoBox video {
+	position: absolute;
+	top: 15.5%;
+	right: 0%;
+	width: 100%;
+	height: 120%;
+	object-fit: cover;
+	opacity: 0.8;
+	grid-area: videoBox;
+
+}
+
+
+#insertCity {
+	margin-top: 0%;
+	grid-area: insertCity;
+	position: relative;
+	text-align: center;
+	margin-right: -70%;
+}
+
+
+#orDiv {
+	font-size: 400%;
+	color: black;
+	position: relative;
+	grid-area: orDiv;
+	padding-top: 30%;
+	margin-right: -30%;
+	font-weight: bold;
+}
+
+#shareLocation {
+	margin-top: 0%;
+	position: relative;
+	grid-area: shareLocation;
+	text-align: center;
+}
+
+#locaionImg {
+	width: 11%;
+	grid-area: shareLocation;
+	animation: bounce 2s infinite;
+}
+
+
+@keyframes bounce {
+
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateY(0);
+	}
+
+	40% {
+		transform: translateY(0);
+	}
+
+	60% {
+		transform: translateY(-15px);
+	}
+}
+
+
+#beachSurfInfo {
+	grid-area: beachSurfInfo;
+	position: relative;
+	text-align: center;
+	padding: 1%;
+	padding-top: 8%;
+}
+
+
+#submitButton {
+	grid-area: insertCity;
+	color: white;
+	font-size: larger;
+	background-color: black;
+	cursor: pointer;
+	border: none;
+	padding: 1%;
+	padding-left: 8%;
+	padding-right: 8%;
+	text-align: center;
+}
+
+#submitButton:hover {
+	background-color: rgb(8, 60, 69);
+
+}
+
+
+@media only screen and (max-width: 920px) {
+
+	#findABeachContainer {
+		display: grid;
+		grid-template-areas:
+			'Nav'
+			'titleDiv'
+			'videoBox'
+			'shareLocation'
+			'orDiv'
+			'insertCity'
+			'beachSurfInfo';
+	}
+
+	#tipsContainer {
+		display: grid;
+		grid-template-areas:
+			'Nav'
+			'tips'
+			'freqQuestions';
+	}
+
+	.videoBox video {
+		height: 200%;
+		grid-area: videoBox;
+		top: 15.7%;
+
+
+	}
+
+	#insertCity {
+		grid-area: insertCity;
+		margin-right: 0%;
+	}
+
+	#locaionImg {
+		width: 15%;
+		grid-area: shareLocation;
+		margin-right: 5%;
+		margin-top: 2%;
+	}
+
+	#shareLocation {
+		grid-area: shareLocation;
+	}
+
+
+	#submitButton {
+		grid-area: insertCity;
+		padding-left: 22%;
+		padding-right: 22%;
+
+	}
+
+
+	#orDiv {
+		grid-area: orDiv;
+		padding-top: 8%;
+		text-align: center;
+		padding-bottom: 8%;
+		margin-right: 5%;
+
+
+	}
+
+	#beachSurfInfo {
+		margin-top: 10%;
+
+	}
+
+
+	.QA {
+		border-style: solid;
+		border-color: black;
+	}
+
+	#tip1,
+	#tip2,
+	#tip3,
+	#tip4,
+	#tip5,
+	#tip6 {
+		display: grid;
+		grid-area: tips;
+		border-bottom: 1vw solid black;
+		padding-bottom: 0%;
+		padding-left: 1.2%;
+
+
+	}
+
+	.leftImg {
+		display: grid;
+		grid-area: tips;
+		height: 50%;
+		width: 233%;
+		margin-left: 0%;
+
+	}
+
+	.rightImg {
+		display: grid;
+		grid-area: tips;
+		height: 50%;
+		width: 234%;
+		margin-left: 0%;
+	}
+
+	.leftTips {
+		grid-area: tips;
+		width: 150%;
+		margin-top: -60%;
+		margin-bottom: 0%;
+		border: none;
+		margin-right: -70%;
+
+
+	}
+
+	.rightTips {
+		grid-area: tips;
+		width: 150%;
+		margin-top: -60%;
+		margin-bottom: 0%;
+		border: none;
+		margin-right: -70%;
+
+
+	}
+
+	#foodImg {
+		width: 224.7%;
+
+	}
+
+	#windImg {
+		width: 226.5%;
+	}
+
+	#seaImg {
+		width: 229.5%;
+	}
+
+	#suitImg {
+		width: 238.5%;
+	}
+
+}
+
+.subTitle {
+	float: none;
+	text-align: center;
+	margin-bottom: 1%;
+	font-size: x-large;
+	font-weight: bold;
+}
+
+.text {
+	font-size: 130%;
+}
+
+.sub_Title {
+	float: none;
+	text-align: center;
+	margin-bottom: 2%;
+	font-size: 150%;
+	font-weight: bolder;
+}
+
+.findABeachLabel {
+	font-size: 3vh;
+	font-weight: bold;
+
+}
+
+#moreDetails {
+	font-size: 120%;
+	font-weight: bold;
+	padding-bottom: 2%;
+	margin-top: -1%;
+}
+
+.findABeachInput {
+	background: none;
+	border-color: black;
+	border-width: 0.3vh;
+}
+
+::placeholder {
+	color: black;
+    font-weight: bold;
+	background: none;
+
+
+}
+
+.active {
+	border-bottom-style: solid;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>find a beach near you</title>
+      <link rel="stylesheet" href="..//static/style.css">
+      <script defer src="..//static/functions.js"></script>
+   </head>
+   <body>
+      <div id="nearBeachesContainer">
+         <nav>
+            <div class="burger">
+               <div class="line1"></div>
+               <div class="line2"></div>
+               <div class="line3"></div>
+            </div>
+            <div class="logo">
+               <img src="..//static/logo.png" id="logo">
+            </div>
+            <ul class="nav-links">
+               <li><a href="Find a Beach.html">מצא חוף</a></li>
+               <li><a href="Surfing Clubs.html"> מועדוני גלישה</a></li>
+               <li><a href="save beach.html"> שמירה על חופי ישראל</a></li>
+               <li><a href="tips.html"> טיפים ושאלות נפוצות</a></li>
+               <li><a href="Contact Us Surf.html"> צור קשר</a></li>
+            </ul>
+         </nav>
+         <div id="headerContainer">
+            <h1>החופים הקרובים אליך</h1>
+            <br>
+         </div>
+         <div class="Main">
+            <h2 id = "openingSentence" class="nearBeachesLables">מזג האוויר באיזורך:</h2>
+            <br>
+            <img  id="weatherPic" src="..//static/weatherPic.png" alt="weather" /> <br> <br>
+            <h2 class="nearBeachesLables">  נמצאו 3 חופים בקרבתך:  </h2>
+            <br><br>
+            <table class="styled-table">
+               <thead>
+                  <tr>
+                     <th> שם חוף</th>
+                     <th>עיר </th>
+                     <th>חנות גלישה </th>
+                     <th>מוכרז </th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>הרצליה</td>
+                     <td>חוף הנכים</td>
+                     <td>&#10004</td>
+                     <td>&#10004</td>
+                  </tr>
+                  <tr>
+                     <td>הרצליה</td>
+                     <td>חוף זבולון</td>
+                     <td>&#10060</td>
+                     <td>&#10004</td>
+                  </tr>
+                  <tr>
+                     <td>הרצליה</td>
+                     <td>חוף אכדיה</td>
+                     <td>&#10004</td>
+                     <td>&#10004</td>
+                  </tr>
+               </tbody>
+            </table>
+            <div id="buttomContainer">
+               <li id="allBeachesLink"><a href="#">
+                  לכל החופים בארץ >
+                  </a>
+               </li>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

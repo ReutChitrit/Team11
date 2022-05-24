@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="..//static/style.css">
+      <script defer src="..//static/functions.js"></script>
+   </head>
+   <body>
+      <div id="gridContainerContactUS">
+         <nav>
+            <div class="burger">
+               <div class="line1"></div>
+               <div class="line2"></div>
+               <div class="line3"></div>
+            </div>
+            <div class="logo">
+               <img src="..//static/logo.png" id="logo">
+            </div>
+            <ul class="nav-links">
+               <li><a href="Find a Beach.html">מצא חוף</a></li>
+               <li><a href="Surfing Clubs.html"> מועדוני גלישה</a></li>
+               <li><a href="save beach.html"> שמירה על חופי ישראל</a></li>
+               <li><a href="tips.html"> טיפים ושאלות נפוצות</a></li>
+               <li><a href="Contact Us Surf.html"> צור קשר</a></li>
+            </ul>
+         </nav>
+         <h1 id="contactUsHeader" > צור קשר </h1>
+         <h2 class ="contactUsSubTitle" > נתקלתם בפרט לא מדויק? נשמח לשמוע על מנת שנוכל לתקן עבור הגולש הבא. <br> אנא שתפו אותנו! </h2>
+         <form id="contactUs" onsubmit="sendMessageAfterSumbit(event)" onsubmit="clearForm()" action="" method="get" autocomplete="off">
+            <small>*</small>
+            <label class = formLabel for="email"> כתובת מייל: </label> 
+            <input type="email" name="email" id="email" class="contactInput" required > <br> <br>
+            <small>*</small>
+            <label class = formLabel for="usage"> משתמש באתר בתדירות: </label>
+            <input list= usageList name="usage" id="usage" class="contactInput" required onkeydown="IgnoreAlpha(event);"> 
+            <datalist id= "usageList">
+               <option value = "נמוכה">
+               <option value = "בינונית">
+               <option value = "גבוהה">
+            </datalist>
+            <br> <br>
+            <small>*</small>
+            <label class = formLabel for="additionalInfo"> במה נתקלת? </label> <br> <br>
+            <textarea id ="textArea" type="text" name="additional" placeholder="דבר אלינו" required minlength="10" maxlength="200" rows="10"></textarea>  <br> <br>
+            <small>*</small>
+            <label class = label for="PhoneNumber" >מספר נייד:</label>
+            <input type="tel" name="PhoneNumber" id="PhoneNumber" class="contactInput" required pattern="[0][5][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" > <br> <br><br><br>
+            <input class="clearButton" type="button" value="נקה" onclick="clearForm()">  
+            <input id = submitButton1 type="submit" value="שלח"> <br> <br><br>
+         </form>
+         <p class =contactUsbottom > תודה על השיתוף. גלישה נעימה! </p> <br>
+      </div>
+   </body>
+</html>
