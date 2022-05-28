@@ -44,11 +44,7 @@ nav {
 	align-items: center;
 	min-height: 10vh;
 	background-color: rgb(8, 60, 69);
-	/* background-color:rgb(91, 154, 176);*/
-	/*background-color:rgb(24, 69, 69);*/
-	/*background-color:rgb(123, 150, 198);*/
-	/*background-color:rgba(221,191,165,255);*/
-	/*opacity:0.7;*/
+	
 	font-size: 95%;
 	grid-area: Nav;
 
@@ -808,10 +804,10 @@ summary {
 
 .videoBox video {
 	position: absolute;
-	top: 15.2%;
+	top: 16.3%;
 	right: 0%;
 	width: 100%;
-	height: 120%;
+	height: 130%;
 	object-fit: cover;
 	opacity: 0.8;
 	grid-area: videoBox;
@@ -925,7 +921,7 @@ summary {
 	.videoBox video {
 		height: 200%;
 		grid-area: videoBox;
-		top: 15.3%;
+		top: 17%;
 
 
 	}
