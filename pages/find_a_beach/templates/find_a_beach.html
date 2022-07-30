@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block main %}
+{{ super() }}
+<div id = "findABeachContainer">
+   <div class="videoBox">
+      <div class="wrapper">
+         <video  width= 960 height = "540" muted loop autoplay>
+            <source src="{{ url_for('.static', filename = 'media/pexels-jess-vide-5230339.mp4')}}" type = "video/mp4">
+         </video>
+      </div>
+   </div>
+   <div id="titleDiv">
+      <h1 class=title> מצא חוף לגלישה בקרבתך </h1>
+   </div>
+   <div id="shareLocation">
+      <h3 class = sub_Title >  שתף מיקום: </h3>
+      <p class = sub_Title1 > הקלק על המיקום ואז הגש בקשתך
+      <p>
+         <input id="locaionImg" value ="Location" type="image" src="{{ url_for('.static', filename = 'media/locationImg.png')}}" onclick="GetLocation()">
+      <form action="/find_a_beach" method="get">
+         <input type="submit" value="הגש בקשה" id="choose_city">
+      </form>
+   </div>
+   <div id="orDiv">
+      <p id="or">או</p>
+   </div>
+   <div class="current_city">
+      {% if session['city'] %}
+      <h3>העיר שנבחרה הינה {{ session['city']}}</h3>
+      {% endif %}
+   </div>
+   <div id="insertCity">
+      <form action="/choose_city" method="get">
+         <br>
+         <h3 class=sub_Title> הזן עיר למציאת חוף </h3>
+         <br>
+         <label class = "findABeachLabel" for="beaches">עיר: </label>
+         <input list= beachesList name="city" class="findABeachInput" required onkeydown="IgnoreAlpha(event);">
+         <datalist id= "beachesList">
+            {% for city in cities %}
+            <option value = {{ city.city }}>
+               {% endfor %}
+         </datalist>
+         <input type="submit" value="בחר" id="choose_city">
+      </form>
+   </div>
+   <div id="beachSurfInfo">
+   <form action="/near_beaches" method="get">
+   <p id="moreDetails"> לתוצאות טובות יותר,<br> מלא את הפרטים הנוספים: </p>
+   <label class = "findABeachLabel" for="supplies"> הצג חופים עם חנות לציוד גלישה בלבד: </label>
+   <input list= suppliesList name="supplies" class="findABeachInput" onkeydown="IgnoreAlpha(event);" >
+   <datalist id= "suppliesList">
+   <option value = "כן">
+   <option value = "לא, הצג את כל החופים">
+   </datalist> <br> <br>
+   <label class = "findABeachLabel" for="supplies" >  הצג חופים עם מציל בלבד:  </label>
+   <input list= with_guard? name="life_guard" class="findABeachInput" onkeydown="IgnoreAlpha(event);">
+   <datalist id= "with_guard?">
+   <option value = "כן">
+   <option value = "לא, הצג את כל החופים">
+   </datalist> <br> <br>
+   <input id = submitButton type="submit" value="חפש"> <br> <br>
+   </form>
+   </div>
+</div>
+{%  endblock %}}

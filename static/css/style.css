@@ -8,11 +8,11 @@
 
 @font-face {
 	font-family: ourFont;
-	src: url(..//static/fonts/static/OpenSans/OpenSans-Light.ttf);
+	src: url("/static/fonts/static/OpenSans/OpenSans-Light.ttf");
 }
 
 body {
-	background-image: url(..//static/background2.jpg);
+	background: url("/static/media/background2.jpg");
 	background-repeat: no-repeat;
 	background-size: 100% 180%;
 	background-attachment: fixed;
@@ -44,7 +44,7 @@ nav {
 	align-items: center;
 	min-height: 10vh;
 	background-color: rgb(8, 60, 69);
-	
+
 	font-size: 95%;
 	grid-area: Nav;
 
@@ -225,7 +225,7 @@ a:hover {
 	.nav-links {
 		position: absolute;
 		right: 0%;
-		bottom:0%;
+		bottom: 0%;
 		top: 10vh;
 		background-color: rgb(8, 60, 69);
 		display: flex;
@@ -336,11 +336,11 @@ a:hover {
 	margin-bottom: 25%;
 	text-align: center;
 	margin-left: 1%;
-	grid-area: 'flex-container1';
+	grid-area: flex-container1;
 }
 
 .flex-container2 {
-	grid-area: 'flex-container2'
+	grid-area: flex-container2;
 }
 
 
@@ -424,11 +424,11 @@ a:hover {
 		display: grid;
 		margin-bottom: 0%;
 		text-align: center;
-		grid-area: 'flex-container1';
+		grid-area: flex-container1;
 	}
 
 	.flex-container2 {
-		grid-area: 'flex-container2';
+		grid-area: flex-container2;
 	}
 
 	.index {
@@ -558,7 +558,8 @@ small {
 	margin-right: 3%;
 }
 
-#submitButton1 {
+#submitButton1,
+.preButton {
 	grid-area: mainContactUs;
 	margin-right: 2%;
 	font-weight: bold;
@@ -582,7 +583,7 @@ small {
 
 .clearButton {
 	grid-area: mainContactUs;
-	margin-right: 14%;
+	margin-right: 3%;
 	font-weight: bold;
 	grid-area: insertCity;
 	color: white;
@@ -595,6 +596,7 @@ small {
 	padding-right: 3%;
 	text-align: center;
 }
+
 
 .clearButton:hover {
 	background-color: rgb(8, 60, 69);
@@ -627,7 +629,7 @@ small {
 }
 
 .contactUsbottom {
-	grid-area: 'bottom';
+	grid-area: bottom;
 	margin-right: 3%;
 	text-align: center;
 	font-size: 3.5vh;
@@ -698,6 +700,86 @@ small {
 
 }
 
+#searchLabel {
+	margin-right: 3%;
+}
+
+#searchButton {
+	grid-area: mainContactUs;
+	margin-right: 1%;
+	font-weight: bold;
+	grid-area: insertCity;
+	color: white;
+	font-size: 90%;
+	background-color: black;
+	cursor: pointer;
+	border: none;
+	padding: 0.2%;
+	padding-left: 2%;
+	padding-right: 2%;
+	text-align: center;
+}
+
+#searchButton:hover {
+	background-color: rgb(8, 60, 69);
+}
+
+#messageStyle {
+	color: forestgreen;
+	text-align: center;
+	font-weight: bold;
+}
+
+.commentContainer {
+	border: black 2px solid;
+	border-radius: 5px;
+	width: 40%;
+	padding: 20px;
+	align-content: center;
+}
+
+#deleteCommentButton,
+#saveCommentButton {
+	grid-area: mainContactUs;
+	font-weight: bold;
+	grid-area: insertCity;
+	color: white;
+	font-size: 90%;
+	background-color: black;
+	cursor: pointer;
+	border: none;
+	padding: 0.2%;
+	padding-left: 2%;
+	padding-right: 2%;
+	text-align: center;
+	float: left;
+}
+
+
+#updateCommentButton {
+	grid-area: mainContactUs;
+	margin-right: 78%;
+	font-weight: bold;
+	grid-area: insertCity;
+	color: white;
+	font-size: 90%;
+	background-color: black;
+	cursor: pointer;
+	border: none;
+	padding: 0.2%;
+	padding-left: 2%;
+	padding-right: 2%;
+	text-align: center;
+	float: right;
+
+}
+
+#serialNumberStyle {
+	text-align: center;
+	font-size: 3.7vh;
+
+}
+
 
 /*find a beach + tips*/
 #findABeachContainer {
@@ -708,6 +790,7 @@ small {
 		'videoBox videoBox videoBox videoBox videoBox'
 		'shareLocation shareLocation orDiv insertCity insertCity'
 		'shareLocation shareLocation orDiv insertCity insertCity'
+		'current_city current_city current_city current_city current_city'
 		'beachSurfInfo beachSurfInfo beachSurfInfo beachSurfInfo beachSurfInfo';
 }
 
@@ -799,7 +882,14 @@ summary {
 	grid-area: titleDiv;
 	position: relative;
 	padding-bottom: 1%;
-	margin-bottom: 5%;
+	margin-bottom: 1%;
+}
+
+.current_city {
+	position: relative;
+	grid-area: current_city;
+	text-align: center;
+	color: aliceblue;
 }
 
 .videoBox video {
@@ -823,6 +913,21 @@ summary {
 	margin-right: -70%;
 }
 
+#weather_info {
+	text-align: center;
+	border: 0.2vw solid black;
+	padding-right: 2%;
+	padding-left: 2%;
+	background-color: #dddddd;
+}
+
+
+#choose_city {
+	background-color: black;
+	color: #dddddd;
+	padding-left: 2%;
+	padding-right: 2%;
+}
 
 #orDiv {
 	font-size: 400%;
@@ -832,6 +937,11 @@ summary {
 	padding-top: 30%;
 	margin-right: -30%;
 	font-weight: bold;
+}
+
+#city_not_chosen {
+	text-align: center;
+	margin-top: 10%;
 }
 
 #shareLocation {
@@ -907,6 +1017,7 @@ summary {
 			'shareLocation'
 			'orDiv'
 			'insertCity'
+			'current city'
 			'beachSurfInfo';
 	}
 
@@ -1065,9 +1176,18 @@ summary {
 	font-weight: bolder;
 }
 
+.sub_Title1 {
+	float: none;
+	text-align: center;
+	margin-bottom: 2%;
+	font-size: 100%;
+	font-weight: bolder;
+}
+
 .findABeachLabel {
 	font-size: 3vh;
 	font-weight: bold;
+	color: black;
 
 }
 
@@ -1086,7 +1206,7 @@ summary {
 
 ::placeholder {
 	color: black;
-    font-weight: bold;
+	font-weight: bold;
 	background: none;
 
 

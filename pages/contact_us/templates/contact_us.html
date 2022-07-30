@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block main %}
+{{ super() }}
+<div id="gridContainerContactUS">
+   <div>
+      <h1 id="contactUsHeader" > צור קשר </h1>
+      <br>
+      {% if message %}
+      <h3 id="messageStyle">{{ message }}</h3>
+      {% endif %}
+      <h2 class ="contactUsSubTitle" > נתקלתם בפרט לא מדויק? נשמח לשמוע על מנת שנוכל לתקן עבור הגולש הבא. <br> אנא שתפו אותנו! </h2>
+   </div>
+   <form id="contactUs"  action="/insert_comment" method="POST" autocomplete="off">
+      <small>*</small>
+      <label class = formLabel for="email"> כתובת מייל: </label>
+      <input type="email" name="email" id="email" class="contactInput" required > <br> <br>
+      <small>*</small>
+      <label class = formLabel for="usage"> משתמש באתר בתדירות: </label>
+      <input list= usageList name="usage" id="usage" class="contactInput" required onkeydown="IgnoreAlpha(event);">
+      <datalist id= "usageList">
+         <option value = "נמוכה">
+         <option value = "בינונית">
+         <option value = "גבוהה">
+      </datalist>
+      <br> <br>
+      <small>*</small>
+      <label class = formLabel for="additionalInfo"> במה נתקלת? </label> <br> <br>
+      <textarea id ="textArea" type="text" name="additional" placeholder="דבר אלינו" required minlength="10" maxlength="200" rows="10"></textarea>  <br> <br>
+      <small>*</small>
+      <label class="formLabel" for="PhoneNumber" >מספר נייד:</label>
+      <input type="tel" name="PhoneNumber" id="PhoneNumber" class="contactInput" required pattern="[0][5][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" > <br> <br><br><br>
+      <input class="clearButton" type="button" value="נקה" onclick="clearForm()">
+      <input id = 'submitButton1' type="submit" value="שלח">
+      <input type="button" class="preButton" name="answer"  onclick="showDiv('toggle')" value="התגובות הקודמות שלך"></input><br><br>
+   </form>
+   <br><br>
+   <div id="toggle" style="display:none">
+   <form action='/search' method="post">
+   <label id="searchLabel" class = formLabel for="email"> הזן כתובת מייל: </label>
+   <input id="searchInput" type="email" name="email" id="email" class="contactInput" required >
+   <input id = 'searchButton' type="submit" value="חפש">
+   <br><br><br>
+   </form>
+   </div>
+   {% if comment_list %}
+   {% for comment in comment_list %}
+   <div class="commentContainer">
+   <h3 id="serialNumberStyle" class="formLabel">מספר סידורי: {{ comment.serial_number }}</h3><br>
+   <h4 class="formLabel">מספר נייד:  {{ comment.phone_number }}</h4>
+   <h4 class="formLabel">משתמש באתר בתדירות:  {{ comment.frequency }}</h4>
+   <h4 class="formLabel">הודעה:  {{ comment.text }}</h4>
+   <form action='/delete_comment' method="post">
+   <input type="hidden" name="serial_number" value="{{ comment.serial_number }}"><br>
+   <input id="deleteCommentButton" class= {{comment.serial_number}} type="submit" value="מחק" data-inline="true">
+   </form>
+   <form action='/update_comment' method="post" >
+   <input id="updateCommentButton" class= {{comment.serial_number}} type="button" value="עדכן"  onclick="showDiv2({{comment.serial_number}})">
+   <div id={{comment.serial_number}} style="display:none">
+   <br>
+   <input type="hidden" name="serial_number" value="{{ comment.serial_number }}">
+   <br><br><small>*</small>
+   <label class = formLabel for="usage"> משתמש באתר בתדירות: </label>
+   <input list=usageList name="usage" placeholder="{{ comment.frequency }}" id="usage" class="contactInput" required onkeydown="IgnoreAlpha(event);" >
+   <datalist id= "usageList">
+   <option value = "נמוכה">
+   <option value = "בינונית">
+   <option value = "גבוהה">
+   </datalist><br>
+   <small>*</small>
+   <label class = formLabel for="additionalInfo"> במה נתקלת? </label> <br>
+   <textarea id ="textArea" type="text" name="additional" required minlength="10" maxlength="200" rows="10" >{{ comment.text }}</textarea>  <br> <br>
+   <small>*</small>
+   <label class = label for="PhoneNumber" >מספר נייד:</label>
+   <input type="tel" name="PhoneNumber" id="PhoneNumber" class="contactInput" required pattern="[0][5][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"  value="{{ comment.phone_number }}"> <br> <br>
+   <input id="saveCommentButton" type="submit" value="שמור">
+   </div>
+   </form>
+   <br>
+   </div><br>
+   {% endfor %}
+   {% endif %}
+</div>
+<p class =contactUsbottom > תודה על השיתוף. גלישה נעימה! </p> <br><br>
+{% endblock %}

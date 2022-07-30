@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block main %}
+{{ super() }}
+{% if session["all_beaches"] ==True %}
+<h2 class="nearBeachesLables">  נמצאו {{ beaches|length }} חופים:  </h2>
+<br><br>
+<table class="styled-table">
+   <thead>
+      <tr>
+         <th> שם העיר</th>
+         <th> שם חוף</th>
+         <th>חנות גלישה </th>
+         <th>מוכרז </th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for beach in beaches %}
+      <tr>
+         <td>{{beach.city}}</td>
+         <td>{{beach.beach_name}}</td>
+         {% if beach.surf_store ==True %}
+         <td>&#10004</td>
+         {%else%}
+         <td>&#10060</td>
+         {% endif%}
+         {% if beach.with_life_guard ==True %}
+         <td>&#10004</td>
+         {%else%}
+         <td>&#10060</td>
+         {% endif%}
+      </tr>
+      {% endfor%}
+   </tbody>
+</table>
+<div id="buttomContainer">
+   <li id="allBeachesLink"><a href="/find_a_beach">
+      חזרה לחיפוש >
+      </a>
+   </li>
+</div>
+{%else%}
+{% if session["city"] %}
+<div id="nearBeachesContainer">
+   <div id="headerContainer">
+      <h1>החופים הקרובים אליך</h1>
+      <br>
+   </div>
+   <div class="Main">
+      <div id="weather_info">
+         {% if session['city'] %}
+         <h3 >מזג האוויר היום ב-{{ session['city']}}:</h3>
+         {% endif %}
+         {% if session['weatherMin'] %}
+         <h3 >הטמפרטורה המינימלית: {{ session['weatherMin']}} מעלות</h3>
+         {% endif %}
+         {% if session['weatherMax'] %}
+         <h3 >הטמפרטורה המקסימלית: {{ session['weatherMax']}} מעלות</h3>
+         {% endif %}
+      </div>
+      <br>
+      <h2 class="nearBeachesLables">  נמצאו {{ beaches|length }} חופים בקרבתך:  </h2>
+      <br><br>
+      <table class="styled-table">
+         <thead>
+            <tr>
+               <th> שם חוף</th>
+               <th>חנות גלישה </th>
+               <th>מוכרז </th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for beach in beaches %}
+            <tr>
+               <td>{{beach.beach_name}}</td>
+               {% if beach.surf_store ==True %}
+               <td>&#10004</td>
+               {%else%}
+               <td>&#10060</td>
+               {% endif%}
+               {% if beach.with_life_guard ==True %}
+               <td>&#10004</td>
+               {%else%}
+               <td>&#10060</td>
+               {% endif%}
+            </tr>
+            {% endfor%}
+         </tbody>
+      </table>
+      {%else%}
+      <h3 id="city_not_chosen">לא נבחרה עיר</h3>
+      {% endif %}
+      <div id="buttomContainer">
+         <li id="allBeachesLink"><a href="/all_beaches">
+            לכל החופים בארץ >
+            </a>
+         </li>
+      </div>
+   </div>
+</div>
+{% endif %}
+{% endblock %}
